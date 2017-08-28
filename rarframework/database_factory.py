@@ -3,14 +3,9 @@ from rarframework import DataContext
 class DatabaseFactory:
     _instance_of_data_context = None
 
-    def get_instance_of_data_context():
+    @staticmethod
+    def get_instance_of_data_context(database_name):
         if (DatabaseFactory._instance_of_data_context == None):
-            DatabaseFactory._instance_of_data_context = DataContext()
-
-        return DatabaseFactory._instance_of_data_context
-
-    def get_instance_of_data_context(databaseName):
-        if (DatabaseFactory._instance_of_data_context == None):
-            DatabaseFactory._instance_of_data_context = DataContext(databaseName)
+            DatabaseFactory._instance_of_data_context = DataContext(database_name)
 
         return DatabaseFactory._instance_of_data_context
